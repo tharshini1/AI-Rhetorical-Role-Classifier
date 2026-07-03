@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Rhetorical Role Classifier</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>⚖ AI Rhetorical Role Classifier</h1>
+
+            <p class="subtitle">
+                Classify legal text into rhetorical roles using Transformer Models.
+            </p>
+
+            <textarea
+                id="textInput"
+                placeholder="Paste your legal document or paragraph here..."
+            ></textarea>
+
+            <button id="predictBtn">
+                Predict
+            </button>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing...</p>
+            </div>
+
+            <div id="resultCard" class="hidden">
+
+                <h2>Prediction</h2>
+
+                <div class="result-box">
+
+                    <p>
+                        <strong>Role :</strong>
+                        <span id="prediction"></span>
+                    </p>
+
+                    <p>
+                        <strong>Confidence :</strong>
+                        <span id="confidence"></span> %
+                    </p>
+
+                    <div class="progress">
+
+                        <div
+                            id="progressBar"
+                            class="progress-fill">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
